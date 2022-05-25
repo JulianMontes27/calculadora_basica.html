@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Basic Calculator</title>
+
+    </head>
+    <body>
+
+        <button onclick="ponereninterface(1)">1</button>
+        <button onclick="ponereninterface(2)">2</button>
+        <button onclick="ponereninterface(3)">3</button> 
+        <button onclick="ponereninterface(4)">4</button>
+        <button onclick="ponereninterface(5)">5</button>
+        <button onclick="ponereninterface(6)">6</button>
+        <button onclick="ponereninterface(7)">7</button>
+        <button onclick="ponereninterface(8)">8</button>
+        <button onclick="ponereninterface(9)">9</button>
+        <button onclick="ponereninterface(0)">0</button>
+        <button onclick="ponereninterface('+')">+</button>
+        <button onclick="ponereninterface('-')">-</button>
+        <button onclick="ponereninterface('*')">*</button>
+        <button onclick="ponereninterface('/')">/</button>
+        <button onclick="haceroperacion()">=</button>
+        <p id="dondevannumeros"></p>
+
+    </body>
+    <script>
+
+        const interface= document.getElementById('dondevannumeros')
+        
+        function ponereninterface(valor){
+            interface.innerHTML+=valor
+        }
+
+        function haceroperacion(){
+            let operacion= interface.innerHTML
+            let num1= parseFloat(operacion[0])
+            let num2= parseFloat(operacion[2])
+            console.log(operacion)
+
+            if (operacion[1]=='+'){
+                let res= Number(num1+num2)
+                interface.textContent+='= '+ res}
+                
+            else if(operacion[1]=='-'){
+                let res= Number(num1-num2)
+                interface.textContent+='= '+ res}
+
+            else if(operacion[1]=='/'){
+                let res= Number(num1/num2)
+                interface.textContent+='= '+ res}
+
+            else if(operacion[1]=='*'){
+                let res= Number(num1*num2)
+                interface.textContent+='= '+ res}       
+        }
+        function borrartodo(){
+            interface.innerHTML=""
+        }
+        function borrar(){
+            const deletebutton= document.createElement('button')
+            deletebutton.innerText="Borrar"
+            deletebutton.style="color:red;border: 3px solid red"
+            deletebutton.onclick=borrartodo
+            document.body.appendChild(deletebutton)}
+
+        borrar()
+    
+     </script>
+</html>
